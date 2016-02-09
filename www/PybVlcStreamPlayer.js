@@ -21,4 +21,14 @@
 var exec = require('cordova/exec');
 
 module.exports = {
+    openPlayerForStreamURL : function(successCallback, errorCallBack, streamURL){
+        exec(successCallback, 
+            function(err){
+                errorCallBack('Error: '+err);
+            },
+            "PybVlcStreamPlayerHelper",
+            "openPlayerForStreamURL",
+            [streamURL]
+        );
+    } 
 };
