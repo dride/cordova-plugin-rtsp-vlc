@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+		xmlns="http://schemas.android.com/apk/res/androoid"
+		id="com.pengyanb.vlcstreamplayer"
+		version="1.0.1">
+
+		<name>vlcstreamplayer</name>
+		<description>VLC Stream Player</description>
+		<author>Peng Yanbing</author>
+		<license>Apache 2.0</license>
+		<keywords>cordova, VLC, stream, rtsp, rtp</keywords>
+
+		<js-module src="www/PybVlcStreamPlayer.js" name="PybVlcStreamPlayer">
+			<clobbers target="PYB.vlcStreamPlayer" />
+		</js-module>
+        
+        <platform name="ios">
+            <config-file target="config.xml" parent="/*">
+                <feature name="PybVlcStreamPlayer">
+                    <param name="ios-package" value="PybVlcStreamPlayer"/>
+                </feature>
+            </config-file>
+ 
+            <framework src="/usr/lib/libbz2.dylib" />
+            <framework src="/usr/lib/libiconv.dylib" />
+            <framework src="/usr/lib/libstdc++.dylib" />
+            <framework src="/usr/lib/libz.dylib" />
+            <framework src="Security.framework" />
+            <framework src="QuartzCore.framework" />
+            <framework src="OpenGLES.framework" />
+            <framework src="CoreText.framework" />
+            <framework src="CFNetwork.framework" />
+            <framework src="AudioToolbox.framework" />
+            <framework src="CoreAudio.framework" />
+            <framework src="UIKit.framework" />
+            <framework src="Foundation.framework" />
+        </platform>
+</plugin>
