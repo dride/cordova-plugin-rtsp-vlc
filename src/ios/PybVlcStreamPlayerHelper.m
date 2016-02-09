@@ -19,7 +19,7 @@
     if(urlString != nil){
         PybVlcStreamPlayerViewController *vlcStreamPlayerViewController = [[PybVlcStreamPlayerViewController alloc] init];
         vlcStreamPlayerViewController.urlString = urlString;
-        [self presentViewController:vlcStreamPlayerViewController animated:YES completion:nil];
+        [self.viewController presentViewController:vlcStreamPlayerViewController animated:YES completion:nil];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Done"];
     }
     else
