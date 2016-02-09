@@ -16,8 +16,11 @@
         
         <platform name="ios">
             <config-file target="config.xml" parent="/*">
-                <feature name="PybVlcStreamPlayer">
-                    <param name="ios-package" value="PybVlcStreamPlayer"/>
+                <feature name="PybVlcStreamPlayerHelper">
+                    <param name="ios-package" value="PybVlcStreamPlayerHelper"/>
+                </feature>
+                <feature name="PybVlcStreamPlayerViewController">
+                    <param name="ios-package" value="PybVlcStreamPlayerViewController">
                 </feature>
             </config-file>
  
