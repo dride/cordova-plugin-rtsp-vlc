@@ -20,7 +20,7 @@
                     <param name="ios-package" value="PybVlcStreamPlayerHelper"/>
                 </feature>
                 <feature name="PybVlcStreamPlayerViewController">
-                    <param name="ios-package" value="PybVlcStreamPlayerViewController">
+                    <param name="ios-package" value="PybVlcStreamPlayerViewController" />
                 </feature>
             </config-file>
  
