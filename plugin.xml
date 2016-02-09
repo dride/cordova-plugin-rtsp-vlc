@@ -23,7 +23,12 @@
                     <param name="ios-package" value="PybVlcStreamPlayerViewController" />
                 </feature>
             </config-file>
- 
+ 	          
+            <header-file src="src/ios/PybVlcStreamPlayerHelper.h" />
+            <source-file src="src/ios/PybVlcStreamPlayerHelper.m" />
+            <header-file src="src/ios/PybVlcStreamPlayerViewController.h" />
+            <source-file src="src/ios/PybVlcStreamPlayerViewController.m" />
+             
             <framework src="/usr/lib/libbz2.dylib" />
             <framework src="/usr/lib/libiconv.dylib" />
             <framework src="/usr/lib/libstdc++.dylib" />
