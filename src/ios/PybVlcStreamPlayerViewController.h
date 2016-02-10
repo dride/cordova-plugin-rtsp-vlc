@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PybVlcStreamPlayerViewController : UIViewController
-
+@property(nonatomic) BOOL playOnStart;
 @property(strong, nonatomic) NSString *urlString;
 @end

@@ -19,6 +19,13 @@
 
 @implementation PybVlcStreamPlayerViewController
 
+-(id)init{
+    if (self = [super init]){
+        self.playOnStart = YES;
+    }
+    return  self;
+}
+
 - (void)viewDidLoad {
     NSLog(@"[PybVlcStreamPlayerViewController viewDidLoad]");
     [super viewDidLoad];
@@ -88,7 +95,23 @@
     [self.playButton addTarget:self action:@selector(playButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (self.playOnStart) {
+        if(self.mediaPlayer.media == nil){
+            NSURL *mediaUrl = [[NSURL alloc] initWithString:self.urlString];
+            if(mediaUrl != nil){
+                [self.mediaPlayer setMedia:[[VLCMedia alloc] initWithURL:mediaUrl]];
+            }
+            else{
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Invalid URL" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                return;
+            }
+        }
+        [self.mediaPlayer play];
+        [self.playButton setTitle:@"||" forState:UIControlStateNormal];
+    }
+}
 - (void)playButtonPressed{
     if ( (self.mediaPlayer != nil) && (self.urlString != nil)){
         if (self.mediaPlayer.isPlaying){
