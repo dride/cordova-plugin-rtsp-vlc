@@ -23,7 +23,7 @@
     NSLog(@"[PybVlcStreamPlayerViewController viewDidLoad]");
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
-    self.urlString = @"rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov";
+    //self.urlString = @"rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov";
     
     //self.urlTextField = [[UITextField alloc] init];
     self.playButton = [[UIButton alloc] init];
@@ -114,6 +114,11 @@
 
 - (void)closeButtonPressed{
     //NSLog(@"[closeButtonPressed]");
+    if(self.mediaPlayer != nil){
+        if(self.mediaPlayer.isPlaying){
+            [self.mediaPlayer stop];
+        }
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
