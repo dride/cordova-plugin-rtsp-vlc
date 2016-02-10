@@ -24,6 +24,8 @@ OR download the built version directly from [here](), then add to your project a
 ![frameworks]
 (https://raw.githubusercontent.com/pengyanb/PhonegapVlcStreamPlayerDemo/master/images/Screen%20Shot%202016-02-11%20at%2010.25.40.png)
 
+**libbz2.dylib, libiconv.dylib, libstdc++.dylib, libz.dylib** can be found by go to **Build Phases** -> **Link Binary with Libraries** -> **+** -> **Add other**, then press **Command** key + **shift** + **G**, type **/usr/lib** 
+
 * Go to **Build Settings** -> **Build Options** -> **Enable Bitcode** -> set to **NO**
 
 ![Enable Bitcode](https://raw.githubusercontent.com/pengyanb/PhonegapVlcStreamPlayerDemo/master/images/Screen%20Shot%202016-02-11%20at%2010.40.05.png)
