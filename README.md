@@ -17,7 +17,7 @@ phonegap plugin add https://github.com/pengyanb/com.pengyanb.vlcstreamplayer.git
 
 OR obtain and build MobileVLCKit.framework from [VideoLan](https://wiki.videolan.org/VLCKit/), then add to your project as **Linked Frameworks and Libraries**
 
-OR download the built version directly from [here](), then add to your project as **Linked Frameworks and Libraries**
+OR download the built version directly from [here](https://onedrive.live.com/redir?resid=6BBF23C87B1022A9!41066&authkey=!AJpN3jn-2L0PJYc&ithint=folder%2cDS_Store), then add to your project as **Linked Frameworks and Libraries**
 
 * Make sure all the framework is include to your project correctly:
 
