@@ -25,9 +25,9 @@
                 <uses-permission android:name="android.permission.INTERNET"/>
             </config-file>
             
-            <source-file src="src/android/PybVlcStreamPlayerHelper.java" target-dir="src/org/apache/cordova/PybStreamPlayer/">
-            <framework src="src/android/" custom="true" type="gradleReference" />
-            <resource-file src="src/android/libs/videoviewstreamplayer.aar" target="libs/videoviewstreamplayer.aar" />
+            <source-file src="src/android/PybVlcStreamPlayerHelper.java" target-dir="src/org/apache/cordova/PybStreamPlayer/"/>
+            <framework src="src/android/" custom="true" type="gradleReference"/>
+            <resource-file src="src/android/libs/videoviewstreamplayer.aar" target="libs/videoviewstreamplayer.aar"/>
         </platform>
         
         <platform name="ios">
