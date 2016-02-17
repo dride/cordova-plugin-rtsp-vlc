@@ -18,7 +18,7 @@ public class PybVlcStreamPlayerHelper extends CordovaPlugin{
         if(action.equals("openPlayerForStreamURL")){
             String urlString = args.getString(0);
             Context context = this.cordova.getActivity().getApplicationContext();
-            Intent intent = new Intent(context, VideoViewStreamPlayerActivity.class);
+            Intent intent = new Intent(context, VideoviewStreamPlayerActivity.class);
             intent.putExtra("UrlString", urlString);
             context.startActivity(intent);
             return true;
