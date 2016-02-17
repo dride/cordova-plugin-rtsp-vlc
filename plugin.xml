@@ -26,7 +26,7 @@
             </config-file>
             
             <source-file src="src/android/PybVlcStreamPlayerHelper.java" target-dir="src/org/apache/cordova/PybStreamPlayer/"/>
-            <framework src="src/android/" custom="true" type="gradleReference"/>
+            <framework src="src/android/videoviewstreamplayer.gradle" custom="true" type="gradleReference"/>
             <resource-file src="src/android/libs/videoviewstreamplayer.aar" target="libs/videoviewstreamplayer.aar"/>
         </platform>
         
