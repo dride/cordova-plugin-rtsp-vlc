@@ -1,7 +1,6 @@
 package org.apache.cordova.PybStreamPlayer;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.content.Intent;
 
 import pengyanb.com.videoviewstreamplayer.VideoviewStreamPlayerActivity;
@@ -10,7 +9,6 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
 
-import org.json.JSONObject;
 import org.json.JSONException;
 import org.json.JSONArray;
 
