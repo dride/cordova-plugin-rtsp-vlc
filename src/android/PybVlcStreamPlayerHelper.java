@@ -23,7 +23,7 @@ public class PybVlcStreamPlayerHelper extends CordovaPlugin{
             Intent intent = new Intent(context, VideoViewStreamPlayerActivity.class);
             intent.putExtra("UrlString", urlString);
             context.startActivity(intent);
-            return true
+            return true;
         }
         return false;
     }
