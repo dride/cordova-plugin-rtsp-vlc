@@ -24,7 +24,6 @@
             
             <config-file target="AndroidManifest.xml" parent="/*">
                 <uses-permission android:name="android.permission.INTERNET" />
-                <application android:theme="@style/Theme.AppCompat.Light"></application>
             </config-file>
             
             <source-file src="src/android/PybVlcStreamPlayerHelper.java" target-dir="src/org/apache/cordova/PybStreamPlayer/"/>
