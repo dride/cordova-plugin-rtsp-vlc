@@ -5,8 +5,7 @@ repositories{
     }
 }
 dependencies{
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'com.android.support:design:23.1.0'
+    compile 'com.android.support:appcompat-v7:19.+'
     compile(name:'videoviewstreamplayer', ext:'aar')
 }
 android{
