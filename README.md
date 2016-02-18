@@ -11,6 +11,16 @@ Android
 phonegap plugin add https://github.com/pengyanb/com.pengyanb.vlcstreamplayer.git
 ```
 
+### Usage
+ ```
+ window.PYB.vlcStreamPlayer.openPlayerForStreamURL(successHandler, errorHandler, urlString);
+ ```
+ 
+ For Instance:
+ ```
+ window.PYB.vlcStreamPlayer.openPlayerForStreamURL(function(){}, function(){}, "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov");
+ ```
+
 #### Extra setup step for iOS
 
 * Integrate MobileVLCKit.framework to your iOS project via [CocoaPods](https://cocoapods.org/)
@@ -37,17 +47,6 @@ OR download the built version directly from [here](https://onedrive.live.com/red
     set **C++ Standard Library** to **libstdc++(GNU C++ Standard Library)**
 
 ![C++](https://raw.githubusercontent.com/pengyanb/PhonegapVlcStreamPlayerDemo/master/images/Screen%20Shot%202016-02-11%20at%2010.40.32.png)
- 
- 
-### Usage
- ```
- window.PYB.vlcStreamPlayer.openPlayerForStreamURL(successHandler, errorHandler, urlString);
- ```
- 
- For Instance:
- ```
- window.PYB.vlcStreamPlayer.openPlayerForStreamURL(function(){}, function(){}, "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov");
- ```
  
 ### Demo
 [PhoneGap VLC Stream Player Demo] (https://github.com/pengyanb/PhonegapVlcStreamPlayerDemo) 
