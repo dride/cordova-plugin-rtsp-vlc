@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="navBar" destination="kVX-dE-Dx4" id="KHf-4F-vSb"/>
                 <outlet property="videoView" destination="YRl-Hz-0lW" id="Ywb-BB-vZw"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="6q9-Mx-T9J"/>
+                <!-- <outlet property="view" destination="i5M-Pr-FkT" id="6q9-Mx-T9J"/> -->
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

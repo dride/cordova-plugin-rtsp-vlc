@@ -11,4 +11,8 @@
 @interface PybVlcStreamPlayerViewController : UIViewController
 @property(nonatomic) BOOL playOnStart;
 @property(strong, nonatomic) NSString *urlString;
+
+@property (retain, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (retain, nonatomic) IBOutlet UIImageView *videoView;
+
 @end
