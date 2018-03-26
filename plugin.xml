@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 		xmlns="http://schemas.android.com/apk/res/androoid"
-		id="com.pengyanb.vlcstreamplayer"
-		version="1.0.1">
+		id="cordova-plugin-rtsp-vlc"
+		version="2.0.0">
 
 		<name>vlcstreamplayer</name>
 		<description>VLC Stream Player</description>
