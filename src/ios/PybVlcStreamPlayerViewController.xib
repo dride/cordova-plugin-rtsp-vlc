@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="rtsplayerViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PybVlcStreamPlayerViewController">
             <connections>
                 <outlet property="navBar" destination="kVX-dE-Dx4" id="KHf-4F-vSb"/>
                 <outlet property="videoView" destination="YRl-Hz-0lW" id="Ywb-BB-vZw"/>
