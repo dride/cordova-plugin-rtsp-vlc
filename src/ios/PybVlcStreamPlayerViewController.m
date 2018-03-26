@@ -19,23 +19,17 @@
 
 @implementation PybVlcStreamPlayerViewController
 
-// Load with xib :)
-- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    
-    return self;
+-(id)init{
+    if (self = [super init]){
+        self.playOnStart = YES;
+    }
+    return  self;
 }
-
-
 
 - (void)viewDidLoad {
     NSLog(@"[PybVlcStreamPlayerViewController viewDidLoad]");
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
-
-
     //self.urlString = @"rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov";
     
     //self.urlTextField = [[UITextField alloc] init];
@@ -101,7 +95,6 @@
     [self.playButton addTarget:self action:@selector(playButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
 }
-
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (self.playOnStart) {
