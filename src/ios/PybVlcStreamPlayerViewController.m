@@ -19,12 +19,17 @@
 
 @implementation PybVlcStreamPlayerViewController
 
--(id)init{
-    if (self = [super init]){
-        self.playOnStart = YES;
-    }
-    return  self;
+// Load with xib :)
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    isHidden = NO;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
+    return self;
 }
+
+
 
 - (void)viewDidLoad {
     NSLog(@"[PybVlcStreamPlayerViewController viewDidLoad]");
@@ -95,6 +100,7 @@
     [self.playButton addTarget:self action:@selector(playButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
 }
+
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (self.playOnStart) {

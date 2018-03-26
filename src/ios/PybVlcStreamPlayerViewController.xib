@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="rtsplayerViewController">
+            <connections>
+                <outlet property="navBar" destination="kVX-dE-Dx4" id="KHf-4F-vSb"/>
+                <outlet property="videoView" destination="YRl-Hz-0lW" id="Ywb-BB-vZw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="6q9-Mx-T9J"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="redraw" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVX-dE-Dx4">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="3zj-aF-UYF"/>
+                    </constraints>
+                    <color key="barTintColor" red="0" green="0" blue="0" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <navigationItem id="36r-60-0nh">
+                            <barButtonItem key="leftBarButtonItem" title="Close" id="Fbz-SJ-i03">
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <action selector="buttonDismissPressed:" destination="-1" id="b4a-FN-aPE"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YRl-Hz-0lW">
+                    <rect key="frame" x="0.0" y="40" width="600" height="560"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="YRl-Hz-0lW" firstAttribute="top" secondItem="kVX-dE-Dx4" secondAttribute="bottom" id="FZz-1l-c21"/>
+                <constraint firstAttribute="bottom" secondItem="YRl-Hz-0lW" secondAttribute="bottom" id="IUE-JU-xRc"/>
+                <constraint firstAttribute="trailing" secondItem="kVX-dE-Dx4" secondAttribute="trailing" id="L3z-L1-34c"/>
+                <constraint firstItem="kVX-dE-Dx4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aDQ-fs-cjT"/>
+                <constraint firstItem="YRl-Hz-0lW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lvH-Oe-Nyg"/>
+                <constraint firstItem="kVX-dE-Dx4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="m7B-o6-C4g"/>
+                <constraint firstAttribute="trailing" secondItem="YRl-Hz-0lW" secondAttribute="trailing" id="qs1-dP-gmn"/>
+                <constraint firstItem="YRl-Hz-0lW" firstAttribute="top" secondItem="kVX-dE-Dx4" secondAttribute="bottom" id="w5e-dQ-LwK"/>
+            </constraints>
+            <point key="canvasLocation" x="818" y="414"/>
+        </view>
+    </objects>
+</document>
