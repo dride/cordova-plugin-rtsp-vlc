@@ -46,7 +46,7 @@
             <source-file src="src/ios/PybVlcStreamPlayerHelper.m" />
             <header-file src="src/ios/PybVlcStreamPlayerViewController.h" />
             <source-file src="src/ios/PybVlcStreamPlayerViewController.m" />
-
+			<resource-file src="src/ios/PybVlcStreamPlayerViewController.xib" />
             <framework src="MobileVLCKit" type="podspec" spec=">1.0.0" />
             <framework src="/usr/lib/libbz2.dylib" />
             <framework src="/usr/lib/libiconv.dylib" />
