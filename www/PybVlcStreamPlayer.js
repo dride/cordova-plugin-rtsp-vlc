@@ -24,7 +24,7 @@ module.exports = {
   openPlayerForStreamURL: function(streamURL) {
     return new Promise(function(resolve, reject) {
       exec(
-        resolve("done"),
+        resolve,
         reject,
         "PybVlcStreamPlayerHelper",
         "openPlayerForStreamURL",
