@@ -14,6 +14,10 @@
 			<clobbers target="PYB.vlcStreamPlayer" />
 		</js-module>
         
+		<!-- ES6 promise polyfill -->
+    	<dependency id="es6-promise-plugin" version="4.1.0" />
+
+
         <platform name="android">
             <config-file target="res/xml/config.xml" parent="/*">
                 <feature name="PybVlcStreamPlayerHelper">
