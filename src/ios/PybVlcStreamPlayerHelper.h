@@ -22,10 +22,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <Cordova/CDVPlugin.h>
+#import "PybVlcStreamPlayerViewController.h"
 
 @interface PybVlcStreamPlayerHelper : CDVPlugin
 
-@property (strong,nonatomic) PybVlcStreamPlayerHelper* overlay;
+@property (strong,nonatomic) PybVlcStreamPlayerViewController* overlay;
 @property (strong,nonatomic) CDVInvokedUrlCommand* lastCommand;
 
 -(void) openPlayerForStreamURL:(CDVInvokedUrlCommand *)command;
