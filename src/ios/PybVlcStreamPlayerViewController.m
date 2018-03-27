@@ -103,7 +103,9 @@
             [self.mediaPlayer stop];
         }
     }
+	[self.origem finishOkAndDismiss];
     [self dismissViewControllerAnimated:YES completion:nil];
+	
 }
 
 @end
