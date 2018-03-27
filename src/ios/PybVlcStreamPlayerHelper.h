@@ -25,6 +25,9 @@
 
 @interface PybVlcStreamPlayerHelper : CDVPlugin
 
+@property (strong,nonatomic) PybVlcStreamPlayerHelper* overlay;
+@property (strong,nonatomic) CDVInvokedUrlCommand* lastCommand;
+
 -(void) openPlayerForStreamURL:(CDVInvokedUrlCommand *)command;
 -(void) finishOkAndDismiss;
 
