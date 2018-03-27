@@ -26,5 +26,6 @@
 @interface PybVlcStreamPlayerHelper : CDVPlugin
 
 -(void) openPlayerForStreamURL:(CDVInvokedUrlCommand *)command;
+-(void) finishOkAndDismiss;
 
 @end

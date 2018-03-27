@@ -19,8 +19,12 @@
     if(urlString != nil){
         PybVlcStreamPlayerViewController *vlcStreamPlayerViewController = [[PybVlcStreamPlayerViewController alloc] init];
         vlcStreamPlayerViewController.urlString = urlString;
-        [self.viewController presentViewController:vlcStreamPlayerViewController animated:YES completion:nil];
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Done"];
+		self.overlay = vlcStreamPlayerViewController
+        [self.viewController presentViewController:self.overlay animated:YES completion:nil];
+		// on the view controller make a reference to this class
+    	self.overlay.origem = self;
+
+       // pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Done"];
     }
     else
     {
@@ -28,4 +32,16 @@
     }
     [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
 }
+
+-(void) finishOkAndDismiss {
+    // End the execution
+    [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK]
+                                callbackId:self.lastCommand.callbackId];
+    
+    // dismiss view from stack
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
+    
+
+}
+
 @end
