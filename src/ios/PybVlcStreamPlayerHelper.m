@@ -6,37 +6,40 @@
 //
 //
 #import "PybVlcStreamPlayerHelper.h"
-#import "PybVlcStreamPlayerViewController.h"
 
-@interface PybVlcStreamPlayerHelper()
-@end
 
 @implementation PybVlcStreamPlayerHelper
 -(void) openPlayerForStreamURL:(CDVInvokedUrlCommand *)command{
     
     self.lastCommand = command;
     
+    
     CDVPluginResult *pluginResult = nil;
     NSString *urlString  = [command.arguments objectAtIndex:0];
     
     if(urlString != nil){
-        PybVlcStreamPlayerViewController *vlcStreamPlayerViewController = [[PybVlcStreamPlayerViewController alloc] init];
-        vlcStreamPlayerViewController.urlString = urlString;
-        self.overlay = vlcStreamPlayerViewController;
+        // we use that to respond to the plugin when it finishes
+        self.lastCommand = command;
+        
+        self.overlay = [[PybVlcStreamPlayerViewController alloc] init];
+        self.overlay.urlString = urlString;
+        
+        // on the view controller make a reference to this class
+        self.overlay.origem = self;
+        
         [self.viewController presentViewController:self.overlay animated:YES completion:nil];
-		// on the view controller make a reference to this class
-    	self.overlay = self;
 
-       // pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Done"];
     }
     else
     {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
     }
-    [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
+
 }
 
 -(void) finishOkAndDismiss{
+    
     // End the execution
     CDVPluginResult *pluginResult = nil;
     

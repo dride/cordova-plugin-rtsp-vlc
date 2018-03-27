@@ -97,15 +97,12 @@
 
 
 - (void)closeButtonPressed{
-    //NSLog(@"[closeButtonPressed]");
     if(self.mediaPlayer != nil){
         if(self.mediaPlayer.isPlaying){
             [self.mediaPlayer stop];
         }
     }
 	[self.origem finishOkAndDismiss];
-    [self dismissViewControllerAnimated:YES completion:nil];
-	
 }
 
 @end
