@@ -33,7 +33,7 @@
             <source-file src="src/android/PybVlcStreamPlayerHelper.java" target-dir="src/org/apache/cordova/PybStreamPlayer/"/>
             
             <framework src="src/android/videoviewstreamplayer.gradle" custom="true" type="gradleReference" />
-            <resource-file src="src/android/libs/videoviewstreamplayer.aar" target="app/videoviewstreamplayer.aar" />
+            <resource-file src="src/android/libs/videoviewstreamplayer.aar" target="videoviewstreamplayer.aar" />
         </platform>
         
         <platform name="ios">
