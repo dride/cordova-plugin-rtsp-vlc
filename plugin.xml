@@ -26,14 +26,14 @@
                 <resource-file src="src/android/libs/videoviewstreamplayer.aar" target="libs/videoviewstreamplayer.aar" />
             </config-file>
             
-            <config-file target="AndroidManifest.xml" parent="app/src/main/">
+            <config-file target="AndroidManifest.xml" parent="/*">
                 <uses-permission android:name="android.permission.INTERNET" />
             </config-file>
             
             <source-file src="src/android/PybVlcStreamPlayerHelper.java" target-dir="src/org/apache/cordova/PybStreamPlayer/"/>
             
             <framework src="src/android/videoviewstreamplayer.gradle" custom="true" type="gradleReference" />
-            <resource-file src="src/android/libs/videoviewstreamplayer.aar" target="libs/videoviewstreamplayer.aar" />
+            <resource-file src="src/android/libs/videoviewstreamplayer.aar" target="app/src/main/libs/videoviewstreamplayer.aar" />
         </platform>
         
         <platform name="ios">
