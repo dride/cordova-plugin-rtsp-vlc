@@ -18,61 +18,43 @@
     	<dependency id="es6-promise-plugin" version="4.1.0" />
 
 
-        <!-- <platform name="android">
-            <config-file target="res/xml/config.xml" parent="/*">
-                <feature name="PybVlcStreamPlayerHelper">
-                    <param name="android-package" value="org.apache.cordova.PybStreamPlayer.PybVlcStreamPlayerHelper"/>
-                </feature>
-                <resource-file src="src/android/libs/videoviewstreamplayer.aar" target="libs/videoviewstreamplayer.aar" />
-            </config-file>
-            
-            <config-file target="AndroidManifest.xml" parent="/*">
-                <uses-permission android:name="android.permission.INTERNET" />
-            </config-file>
-            
-            <source-file src="src/android/PybVlcStreamPlayerHelper.java" target-dir="src/org/apache/cordova/PybStreamPlayer/"/>
-            
-            <framework src="src/android/videoviewstreamplayer.gradle" custom="true" type="gradleReference" />
-            <resource-file src="src/android/libs/videoviewstreamplayer.aar" target="../../libs/videoviewstreamplayer.aar" />
-        </platform> -->
-		    <!-- android -->
-    <platform name="android">	
-		<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
-	
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="VideoPlayerVLC">
-                <param name="android-package" value="com.libVLC.VideoPlayerVLC"/>
-            </feature>
-        </config-file>
+		<platform name="android">	
+			<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
 		
-        <config-file target="AndroidManifest.xml" parent="/manifest">
-			<uses-permission android:name="android.permission.INTERNET" />
-        </config-file>
+			<config-file target="res/xml/config.xml" parent="/*">
+				<feature name="VideoPlayerVLC">
+					<param name="android-package" value="com.libVLC.VideoPlayerVLC"/>
+				</feature>
+			</config-file>
+			
+			<config-file target="AndroidManifest.xml" parent="/manifest">
+				<uses-permission android:name="android.permission.INTERNET" />
+			</config-file>
 
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:name="com.libVLC.VLCActivity"/>
-        </config-file>
-		
-        <source-file src="src/android/com/libVLC/VideoPlayerVLC.java" target-dir="src/com/libVLC"/>
-        <source-file src="src/android/com/libVLC/VLCActivity.java" target-dir="src/com/libVLC"/>
-		
-		<resource-file src="src/android/res/layout/vlc_player.xml" target="res/layout/vlc_player.xml" />
-		
-		<resource-file src="src/android/res/drawable-hdpi/ic_pause_white_24dp.png" target="res/drawable-hdpi/ic_pause_white_24dp.png" />
-		<resource-file src="src/android/res/drawable-hdpi/ic_play_arrow_white_24dp.png" target="res/drawable-hdpi/ic_play_arrow_white_24dp.png" />
-		
-		<resource-file src="src/android/res/drawable-mdpi/ic_pause_white_24dp.png" target="res/drawable-mdpi/ic_pause_white_24dp.png" />
-		<resource-file src="src/android/res/drawable-mdpi/ic_play_arrow_white_24dp.png" target="res/drawable-mdpi/ic_play_arrow_white_24dp.png" />
-		
-		<resource-file src="src/android/res/drawable-xhdpi/ic_pause_white_24dp.png" target="res/drawable-xhdpi/ic_pause_white_24dp.png" />
-		<resource-file src="src/android/res/drawable-xhdpi/ic_play_arrow_white_24dp.png" target="res/drawable-xhdpi/ic_play_arrow_white_24dp.png" />
-		
-		<resource-file src="src/android/res/drawable-xxhdpi/ic_pause_white_24dp.png" target="res/drawable-xxhdpi/ic_pause_white_24dp.png" />
-		<resource-file src="src/android/res/drawable-xxhdpi/ic_play_arrow_white_24dp.png" target="res/drawable-xxhdpi/ic_play_arrow_white_24dp.png" />
-		
-		<resource-file src="src/android/res/drawable-xxxhdpi/ic_pause_white_24dp.png" target="res/drawable-xxxhdpi/ic_pause_white_24dp.png" />
-		<resource-file src="src/android/res/drawable-xxxhdpi/ic_play_arrow_white_24dp.png" target="res/drawable-xxxhdpi/ic_play_arrow_white_24dp.png" />
-    </platform>
+			<config-file target="AndroidManifest.xml" parent="/manifest/application">
+				<activity android:name="com.libVLC.VLCActivity"/>
+			</config-file>
+			
+			<source-file src="src/android/com/libVLC/VideoPlayerVLC.java" target-dir="src/com/libVLC"/>
+			<source-file src="src/android/com/libVLC/VLCActivity.java" target-dir="src/com/libVLC"/>
+			
+			<resource-file src="src/android/res/layout/vlc_player.xml" target="res/layout/vlc_player.xml" />
+			
+			<resource-file src="src/android/res/drawable-hdpi/ic_pause_white_24dp.png" target="res/drawable-hdpi/ic_pause_white_24dp.png" />
+			<resource-file src="src/android/res/drawable-hdpi/ic_play_arrow_white_24dp.png" target="res/drawable-hdpi/ic_play_arrow_white_24dp.png" />
+			
+			<resource-file src="src/android/res/drawable-mdpi/ic_pause_white_24dp.png" target="res/drawable-mdpi/ic_pause_white_24dp.png" />
+			<resource-file src="src/android/res/drawable-mdpi/ic_play_arrow_white_24dp.png" target="res/drawable-mdpi/ic_play_arrow_white_24dp.png" />
+			
+			<resource-file src="src/android/res/drawable-xhdpi/ic_pause_white_24dp.png" target="res/drawable-xhdpi/ic_pause_white_24dp.png" />
+			<resource-file src="src/android/res/drawable-xhdpi/ic_play_arrow_white_24dp.png" target="res/drawable-xhdpi/ic_play_arrow_white_24dp.png" />
+			
+			<resource-file src="src/android/res/drawable-xxhdpi/ic_pause_white_24dp.png" target="res/drawable-xxhdpi/ic_pause_white_24dp.png" />
+			<resource-file src="src/android/res/drawable-xxhdpi/ic_play_arrow_white_24dp.png" target="res/drawable-xxhdpi/ic_play_arrow_white_24dp.png" />
+			
+			<resource-file src="src/android/res/drawable-xxxhdpi/ic_pause_white_24dp.png" target="res/drawable-xxxhdpi/ic_pause_white_24dp.png" />
+			<resource-file src="src/android/res/drawable-xxxhdpi/ic_play_arrow_white_24dp.png" target="res/drawable-xxxhdpi/ic_play_arrow_white_24dp.png" />
+		</platform>
         
         <platform name="ios">
             <config-file target="config.xml" parent="/*">

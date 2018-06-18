@@ -1,4 +1,4 @@
-package com.vlcplayer;
+package com.webmons.disono.vlcplayer;
 
 import org.junit.Test;
 

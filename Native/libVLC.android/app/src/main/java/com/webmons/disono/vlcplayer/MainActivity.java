@@ -1,4 +1,4 @@
-package com.vlcplayer;
+package com.webmons.disono.vlcplayer;
 
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
@@ -15,8 +15,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.vlc.VlcListener;
-import com.vlc.VlcVideoLibrary;
+import com.webmons.disono.vlc.VlcListener;
+import com.webmons.disono.vlc.VlcVideoLibrary;
 
 import java.util.Locale;
 import java.util.Timer;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements VlcListener, View
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

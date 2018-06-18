@@ -1,4 +1,4 @@
-package com.vlcplayer;
+package com.webmons.disono.vlcplayer;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.vlcplayer", appContext.getPackageName());
+        assertEquals("com.webmons.disono.vlcplayer", appContext.getPackageName());
     }
 }

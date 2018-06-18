@@ -3,24 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center|center_horizontal"
+    android:layout_gravity="center|center_vertical"
     android:orientation="vertical"
-    tools:context="com.vlcplayer.MainActivity">
+    tools:context="com.webmons.disono.vlcplayer.MainActivity">
 
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center|center_horizontal">
+        android:layout_gravity="center|center_vertical">
 
         <LinearLayout
             android:id="@+id/mediaPlayerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_gravity="center|center_horizontal"
+            android:layout_gravity="center|center_vertical"
             android:scrollbars="vertical"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <SurfaceView
                 android:id="@+id/surfaceView"
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#757575"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_gravity="center|bottom"
             android:layout_alignParentBottom="true"
             android:padding="3dp">
