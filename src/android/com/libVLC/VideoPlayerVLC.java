@@ -96,6 +96,12 @@ public class VideoPlayerVLC extends CordovaPlugin {
                 url = args.getString(0);
                 _play(url, true, true);
                 return true;
+            case "pause":
+                _filters("pause");
+                return true;
+            case "stop":
+                _filters("stop");
+                return true;
         }
 
         PluginResult pluginResult = new PluginResult(PluginResult.Status.NO_RESULT);
