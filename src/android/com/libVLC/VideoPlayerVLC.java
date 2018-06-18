@@ -94,32 +94,7 @@ public class VideoPlayerVLC extends CordovaPlugin {
         switch (action) {
             case "play":
                 url = args.getString(0);
-                object = args.getJSONObject(1);
-                _play(url, object.getBoolean("autoPlay"), object.getBoolean("hideControls"));
-
-                return true;
-            case "playNext":
-                url = args.getString(0);
-                object = args.getJSONObject(1);
-                _playNext(url, object.getBoolean("autoPlay"), object.getBoolean("hideControls"));
-
-                return true;
-            case "pause":
-                _filters("pause");
-
-                return true;
-            case "stop":
-                _filters("stop");
-
-                return true;
-            case "getPosition":
-                _filters("getPosition");
-
-                return true;
-            case "seekPosition":
-                object = args.getJSONObject(1);
-                _seekPosition(object.getLong("position"));
-
+                _play(url, true, true);
                 return true;
         }
 
