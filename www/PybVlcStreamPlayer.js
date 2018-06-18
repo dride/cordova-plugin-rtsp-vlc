@@ -21,15 +21,9 @@
 var exec = require("cordova/exec");
 
 module.exports = {
-  openPlayerForStreamURL: function(streamURL) {
+  play: function(uri, options, success, failure) {
     return new Promise(function(resolve, reject) {
-      exec(
-        resolve,
-        reject,
-        "PybVlcStreamPlayerHelper",
-        "openPlayerForStreamURL",
-        [streamURL]
-      );
+      exec(resolve, reject, "PybVlcStreamPlayerHelper", "play", [uri]);
     });
   }
 };

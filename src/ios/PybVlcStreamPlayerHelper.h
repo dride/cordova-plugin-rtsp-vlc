@@ -29,7 +29,7 @@
 @property (strong,nonatomic) PybVlcStreamPlayerViewController* overlay;
 @property (strong,nonatomic) CDVInvokedUrlCommand* lastCommand;
 
--(void) openPlayerForStreamURL:(CDVInvokedUrlCommand *)command;
+-(void) play:(CDVInvokedUrlCommand *)command;
 -(void) finishOkAndDismiss;
 
 @end

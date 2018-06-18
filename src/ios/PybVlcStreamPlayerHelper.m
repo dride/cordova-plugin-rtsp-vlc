@@ -9,7 +9,7 @@
 
 
 @implementation PybVlcStreamPlayerHelper
--(void) openPlayerForStreamURL:(CDVInvokedUrlCommand *)command{
+-(void) play:(CDVInvokedUrlCommand *)command{
     
     self.lastCommand = command;
     

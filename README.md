@@ -15,7 +15,7 @@ cordova plugin add https://github.com/dride/cordova-plugin-rtsp-vlc
 ### Usage
 
 ```
-window.PYB.vlcStreamPlayer.openPlayerForStreamURL(urlString).then(
+window.PYB.vlcStreamPlayer.play(urlString).then(
 	 done => {},
 	 error => {}
 );
@@ -24,7 +24,7 @@ window.PYB.vlcStreamPlayer.openPlayerForStreamURL(urlString).then(
 For Instance:
 
 ```
-window.PYB.vlcStreamPlayer.openPlayerForStreamURL("rtsp://192.168.42.1/live.mov").then(
+window.PYB.vlcStreamPlayer.play("rtsp://192.168.42.1/live.mov").then(
 	 done => {},
 	 error => {}
 );
