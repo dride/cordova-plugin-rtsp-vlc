@@ -2,16 +2,16 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 		xmlns="http://schemas.android.com/apk/res/androoid"
 		id="cordova-plugin-rtsp-vlc"
-		version="2.0.0">
+		version="3.0.0">
 
 		<name>vlcstreamplayer</name>
 		<description>VLC Stream Player</description>
-		<author>Peng Yanbing</author>
+		<author>Yossi Neiman</author>
 		<license>Apache 2.0</license>
 		<keywords>cordova, VLC, stream, rtsp, rtp</keywords>
 
-		<js-module src="www/PybVlcStreamPlayer.js" name="PybVlcStreamPlayer">
-			<clobbers target="PYB.vlcStreamPlayer" />
+		<js-module src="www/VideoPlayerVLC.js" name="VideoPlayerVLC">
+			<clobbers target="window.VideoPlayerVLC" />
 		</js-module>
         
 		<!-- ES6 promise polyfill -->
@@ -58,8 +58,8 @@
         
         <platform name="ios">
             <config-file target="config.xml" parent="/*">
-                <feature name="PybVlcStreamPlayerHelper">
-                    <param name="ios-package" value="PybVlcStreamPlayerHelper"/>
+                <feature name="VideoPlayerVLC">
+                    <param name="ios-package" value="VideoPlayerVLC"/>
                 </feature>
                 <feature name="PybVlcStreamPlayerViewController">
                     <param name="ios-package" value="PybVlcStreamPlayerViewController" />
