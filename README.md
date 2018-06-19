@@ -1,37 +1,37 @@
 # PhoneGap/Cordova RTSP player using VLC
 
-### Supported Platform
-Android
-iOS
+## Installation
 
-Android
+    cordova plugin add cordova-plugin-rtsp-vlc
 
-### Installation
+## Supported Platforms
 
-```
-cordova plugin add https://github.com/dride/cordova-plugin-rtsp-vlc
-```
+- Android
+- iOS
 
-### Usage
+## Usage
 
 ```
 window.VideoPlayerVLC.play(
-         url,
+	 url,
 	 done => {},
 	 error => {}
 );
 ```
 
-Example:
+## Response
+
+done: string - "onDestroyVlc"
+
+## Example:
 
 ```
 window.VideoPlayerVLC.play(
-         "rtsp://192.168.42.1/live.mov",
+	 "rtsp://192.168.42.1/live.mov",
 	 done => {},
 	 error => {}
 );
 ```
-
 
 References:
 
