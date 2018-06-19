@@ -66,8 +66,8 @@
                 </feature>
             </config-file>
  	          
-            <header-file src="src/ios/VideoPlayerVLCHelper.h" />
-            <source-file src="src/ios/VideoPlayerVLCHelper.m" />
+            <header-file src="src/ios/VideoPlayerVLC.h" />
+            <source-file src="src/ios/VideoPlayerVLC.m" />
             <header-file src="src/ios/VideoPlayerVLCViewController.h" />
             <source-file src="src/ios/VideoPlayerVLCViewController.m" />
             <framework src="MobileVLCKit" type="podspec" spec=">1.0.0" />

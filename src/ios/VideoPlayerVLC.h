@@ -1,5 +1,5 @@
 //
-//  VideoPlayerVLCHelper.h
+//  VideoPlayerVLC.h
 
 // Licensed to the Apache Software Foundation (ASF) under one
 //or more contributor license agreements.  See the NOTICE file
@@ -24,7 +24,7 @@
 #import <Cordova/CDVPlugin.h>
 #import "VideoPlayerVLCViewController.h"
 
-@interface VideoPlayerVLCHelper : CDVPlugin
+@interface VideoPlayerVLC : CDVPlugin
 
 @property (strong,nonatomic) VideoPlayerVLCViewController* overlay;
 @property (strong,nonatomic) CDVInvokedUrlCommand* lastCommand;

@@ -36,7 +36,7 @@
     self.playButton = [[UIButton alloc] init];
     self.closeButton = [[UIButton alloc] init];
     self.mediaView = [[UIView alloc] init];
-    self.mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:@[@"--network-caching=150"]];
+    self.mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:@[@"--network-caching=150 --clock-jitter=0 -- clock-synchro=0"]];
     
     
     self.playButton.translatesAutoresizingMaskIntoConstraints = NO;

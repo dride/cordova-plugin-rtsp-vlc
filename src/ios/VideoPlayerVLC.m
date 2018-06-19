@@ -1,14 +1,14 @@
 //
-//  VideoPlayerVLCHelper.m
+//  VideoPlayerVLC.m
 //  
 //
 //  Created by Yanbing Peng on 10/02/16.
 //
 //
-#import "VideoPlayerVLCHelper.h"
+#import "VideoPlayerVLC.h"
 
 
-@implementation VideoPlayerVLCHelper
+@implementation VideoPlayerVLC
 -(void) play:(CDVInvokedUrlCommand *)command{
     
     self.lastCommand = command;
