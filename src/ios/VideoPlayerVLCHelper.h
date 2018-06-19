@@ -1,5 +1,5 @@
 //
-//  PybVlcStreamPlayerHelper.h
+//  VideoPlayerVLCHelper.h
 
 // Licensed to the Apache Software Foundation (ASF) under one
 //or more contributor license agreements.  See the NOTICE file
@@ -22,11 +22,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <Cordova/CDVPlugin.h>
-#import "PybVlcStreamPlayerViewController.h"
+#import "VideoPlayerVLCViewController.h"
 
-@interface PybVlcStreamPlayerHelper : CDVPlugin
+@interface VideoPlayerVLCHelper : CDVPlugin
 
-@property (strong,nonatomic) PybVlcStreamPlayerViewController* overlay;
+@property (strong,nonatomic) VideoPlayerVLCViewController* overlay;
 @property (strong,nonatomic) CDVInvokedUrlCommand* lastCommand;
 
 -(void) play:(CDVInvokedUrlCommand *)command;

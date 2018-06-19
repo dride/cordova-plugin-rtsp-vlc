@@ -1,14 +1,14 @@
 //
-//  PybVlcStreamPlayerHelper.m
+//  VideoPlayerVLCHelper.m
 //  
 //
 //  Created by Yanbing Peng on 10/02/16.
 //
 //
-#import "PybVlcStreamPlayerHelper.h"
+#import "VideoPlayerVLCHelper.h"
 
 
-@implementation PybVlcStreamPlayerHelper
+@implementation VideoPlayerVLCHelper
 -(void) play:(CDVInvokedUrlCommand *)command{
     
     self.lastCommand = command;
@@ -21,7 +21,7 @@
         // we use that to respond to the plugin when it finishes
         self.lastCommand = command;
         
-        self.overlay = [[PybVlcStreamPlayerViewController alloc] init];
+        self.overlay = [[VideoPlayerVLCViewController alloc] init];
         self.overlay.urlString = urlString;
         
         // on the view controller make a reference to this class
