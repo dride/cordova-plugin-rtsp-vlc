@@ -43,7 +43,7 @@
     // End the execution
     CDVPluginResult *pluginResult = nil;
     
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Done"];
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"{event_name: 'onDestroyVlc'}"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId: self.lastCommand.callbackId];
     
     // dismiss view from stack
