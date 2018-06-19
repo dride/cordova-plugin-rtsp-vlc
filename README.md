@@ -31,3 +31,9 @@ window.VideoPlayerVLC.play(
 	 error => {}
 );
 ```
+
+
+References:
+
+https://github.com/disono/libVLC-Player by [@disono](https://github.com/disono)
+https://github.com/pengyanb/com.pengyanb.vlcstreamplayer by [@pengyanb](https://github.com/pengyanb)
