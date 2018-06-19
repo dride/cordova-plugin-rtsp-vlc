@@ -171,20 +171,7 @@ public class VideoPlayerVLC extends CordovaPlugin {
     }
 
     private void _cordovaSendResult(String event, String data) {
-        JSONObject obj = new JSONObject();
-        try {
-            obj.put("event_name", event);
-            obj.put("data", (data != null) ? new JSONObject(data) : "");
-        } catch (JSONException e) {
-            e.printStackTrace();
-
-            PluginResult pluginResult = new PluginResult(PluginResult.Status.ERROR, e.getMessage());
-            pluginResult.setKeepCallback(true);
-            callbackContext.sendPluginResult(pluginResult);
-            return;
-        }
-
-        PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, obj);
+        PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, event);
         pluginResult.setKeepCallback(true);
         callbackContext.sendPluginResult(pluginResult);
     }
