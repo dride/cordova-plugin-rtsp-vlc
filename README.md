@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/cordova-plugin-rtsp-vlc.svg)](https://badge.fury.io/js/cordova-plugin-rtsp-vlc)
+
 # PhoneGap/Cordova RTSP player using VLC
 
 ## Installation
