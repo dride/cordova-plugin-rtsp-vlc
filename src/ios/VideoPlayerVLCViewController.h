@@ -1,5 +1,5 @@
 //
-//  PybVlcStreamPlayerViewController.h
+//  VideoPlayerVLCViewController.h
 //  MobileVLCKiteTest
 //
 //  Created by Yanbing Peng on 9/02/16.
@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PybVlcStreamPlayerViewController : UIViewController
+@interface VideoPlayerVLCViewController : UIViewController
 @property(nonatomic) BOOL playOnStart;
 @property(strong, nonatomic) NSString *urlString;
 
-@property (retain, nonatomic) PybVlcStreamPlayerViewController* origem;
+@property (retain, nonatomic) VideoPlayerVLCViewController* origem;
 
 -(void) finishOkAndDismiss;
 

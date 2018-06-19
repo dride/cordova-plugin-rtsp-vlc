@@ -1,15 +1,15 @@
 //
-//  PybVlcStreamPlayerViewController.m
+//  VideoPlayerVLCViewController.m
 //  MobileVLCKiteTest
 //
 //  Created by Yanbing Peng on 9/02/16.
 //  Copyright © 2016 Yanbing Peng. All rights reserved.
 //
 
-#import "PybVlcStreamPlayerViewController.h"
+#import "VideoPlayerVLCViewController.h"
 #import <MobileVLCKit/MobileVLCKit.h>
 
-@interface PybVlcStreamPlayerViewController ()
+@interface VideoPlayerVLCViewController ()
 @property(strong, nonatomic) VLCMediaPlayer *mediaPlayer;
 
 @property(strong, nonatomic) UIButton *closeButton;
@@ -17,7 +17,7 @@
 @property(strong, nonatomic) UIView *mediaView;
 @end
 
-@implementation PybVlcStreamPlayerViewController
+@implementation VideoPlayerVLCViewController
 
 -(id)init{
     if (self = [super init]){
@@ -27,7 +27,7 @@
 }
 
 - (void)viewDidLoad {
-    NSLog(@"[PybVlcStreamPlayerViewController viewDidLoad]");
+    NSLog(@"[VideoPlayerVLCViewController viewDidLoad]");
     [super viewDidLoad];
     self.view.backgroundColor =  [UIColor blackColor];
     
