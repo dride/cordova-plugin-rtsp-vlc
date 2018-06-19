@@ -61,15 +61,15 @@
                 <feature name="VideoPlayerVLC">
                     <param name="ios-package" value="VideoPlayerVLC"/>
                 </feature>
-                <feature name="PybVlcStreamPlayerViewController">
-                    <param name="ios-package" value="PybVlcStreamPlayerViewController" />
+                <feature name="VideoPlayerVLCViewController">
+                    <param name="ios-package" value="VideoPlayerVLCViewController" />
                 </feature>
             </config-file>
  	          
-            <header-file src="src/ios/VideoPlayerVLC.h" />
-            <source-file src="src/ios/VideoPlayerVLC.m" />
-            <header-file src="src/ios/PybVlcStreamPlayerViewController.h" />
-            <source-file src="src/ios/PybVlcStreamPlayerViewController.m" />
+            <header-file src="src/ios/VideoPlayerVLCHelper.h" />
+            <source-file src="src/ios/VideoPlayerVLCHelper.m" />
+            <header-file src="src/ios/VideoPlayerVLCViewController.h" />
+            <source-file src="src/ios/VideoPlayerVLCViewController.m" />
             <framework src="MobileVLCKit" type="podspec" spec=">1.0.0" />
             <framework src="/usr/lib/libbz2.dylib" />
             <framework src="/usr/lib/libiconv.dylib" />
