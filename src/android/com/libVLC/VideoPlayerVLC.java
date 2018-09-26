@@ -38,36 +38,26 @@ public class VideoPlayerVLC extends CordovaPlugin {
                 Log.d(TAG, "Method: " + method + " Data: " + data);
 
                 if (method != null) {
-                    switch (method) {
-                        case "onPlayVlc":
-                            _cordovaSendResult("onPlayVlc", data);
-
-                            break;
-                        case "onPauseVlc":
-                            _cordovaSendResult("onPauseVlc", data);
-
-                            break;
-                        case "onStopVlc":
-                            _cordovaSendResult("onStopVlc", data);
-
-                            break;
-                        case "onVideoEnd":
-                            _cordovaSendResult("onVideoEnd", data);
-
-                            break;
-                        case "onDestroyVlc":
-                            _cordovaSendResult("onDestroyVlc", data);
-
-                            break;
-                        case "onError":
-                            _cordovaSendResult("onError", data);
-
-                            break;
-
-                        case "getPosition":
-                            _cordovaSendResult("getPosition", data);
-
-                            break;
+                    if (method.equals("onPlayVlc")) {
+                        _cordovaSendResult("onPlayVlc", data);
+                    }
+                    else if (method.equals("onPauseVlc")) {
+                        _cordovaSendResult("onPauseVlc", data);
+                    }
+                    else if (method.equals("onStopVlc")) {
+                        _cordovaSendResult("onStopVlc", data);
+                    }
+                    else if (method.equals("onVideoEnd")) {
+                        _cordovaSendResult("onVideoEnd", data);
+                    }
+                    else if (method.equals("onDestroyVlc")) {
+                        _cordovaSendResult("onDestroyVlc", data);
+                    }
+                    else if (method.equals("onError")) {
+                        _cordovaSendResult("onError", data);
+                    }
+                    else if (method.equals("getPosition")) {
+                        _cordovaSendResult("getPosition", data);
                     }
                 }
             }
@@ -91,17 +81,18 @@ public class VideoPlayerVLC extends CordovaPlugin {
         String url;
         JSONObject object;
 
-        switch (action) {
-            case "play":
-                url = args.getString(0);
-                _play(url, true, true);
-                return true;
-            case "pause":
-                _filters("pause");
-                return true;
-            case "stop":
-                _filters("stop");
-                return true;
+        if (action.equals("play")) {
+            url = args.getString(0);
+            _play(url, true, true);
+            return true;
+        }
+        else if (action.equals("pause")) {
+            _filters("pause");
+            return true;
+        }
+        else if (action.equals("stop")) {
+            _filters("stop");
+            return true;
         }
 
         PluginResult pluginResult = new PluginResult(PluginResult.Status.NO_RESULT);
