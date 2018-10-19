@@ -76,55 +76,47 @@ public class VLCActivity extends Activity implements VlcListener, View.OnClickLi
                 String method = intent.getStringExtra("method");
 
                 if (method != null) {
-                    switch (method) {
-                        case "playNext":
-                            _url = intent.getStringExtra("url");
-                            _autoPlay = intent.getBooleanExtra("autoPlay", false);
-                            _hideControls = intent.getBooleanExtra("hideControls", false);
+                    if (method.equals("playNext")) {
+                        _url = intent.getStringExtra("url");
+                        _autoPlay = intent.getBooleanExtra("autoPlay", false);
+                        _hideControls = intent.getBooleanExtra("hideControls", false);
 
-                            _initPlayer();
-
-                            break;
-                        case "pause":
-                            if (vlcVideoLibrary.isPlaying()) {
-                                vlcVideoLibrary.pause();
+                        _initPlayer();
+                    }
+                    else if (method.equals("pause")) {
+                        if (vlcVideoLibrary.isPlaying()) {
+                            vlcVideoLibrary.pause();
+                        }
+                    }
+                    else if (method.equals("resume")) {
+                        if (vlcVideoLibrary.isPlaying()) {
+                            vlcVideoLibrary.getPlayer().play();
+                        }
+                    }
+                    else if (method.equals("stop")) {
+                        if (vlcVideoLibrary.isPlaying()) {
+                            vlcVideoLibrary.stop();
+                        }
+                    }
+                    else if (method.equals("getPosition")) {
+                        if (vlcVideoLibrary.isPlaying()) {
+                            JSONObject obj = new JSONObject();
+                            try {
+                                obj.put("position", playingPos);
+                                obj.put("current_location", currentLoc);
+                                obj.put("duration", duration);
+                                _sendBroadCast("getPosition", obj);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-
-                            break;
-                        case "resume":
-                            if (vlcVideoLibrary.isPlaying()) {
-                                vlcVideoLibrary.getPlayer().play();
-                            }
-
-                            break;
-                        case "stop":
-                            if (vlcVideoLibrary.isPlaying()) {
-                                vlcVideoLibrary.stop();
-                            }
-
-                            break;
-                        case "getPosition":
-                            if (vlcVideoLibrary.isPlaying()) {
-                                JSONObject obj = new JSONObject();
-                                try {
-                                    obj.put("position", playingPos);
-                                    obj.put("current_location", currentLoc);
-                                    obj.put("duration", duration);
-                                    _sendBroadCast("getPosition", obj);
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            break;
-                        case "seekPosition":
-                            Log.d(TAG, "Seek: " + intent.getFloatExtra("position", 0));
-                            if (vlcVideoLibrary.isPlaying()) {
-                                isSeeking = true;
-                                _changePosition(intent.getFloatExtra("position", 0));
-                            }
-
-                            break;
+                        }
+                    }
+                    else if (method.equals("seekPosition")) {
+                        Log.d(TAG, "Seek: " + intent.getFloatExtra("position", 0));
+                        if (vlcVideoLibrary.isPlaying()) {
+                            isSeeking = true;
+                            _changePosition(intent.getFloatExtra("position", 0));
+                        }
                     }
                 }
             }
@@ -246,30 +238,37 @@ public class VLCActivity extends Activity implements VlcListener, View.OnClickLi
 
     private void _initPlayer() {
         new Timer().schedule(
-                new TimerTask() {
-                    @Override
-                    public void run() {
-                        if (_hideControls) {
-                            Thread thread = new Thread() {
-                                @Override
-                                public void run() {
-                                    runOnUiThread(() -> mediaPlayerControls.setVisibility(View.GONE));
-                                }
-                            };
-
-                            thread.start();
-                        }
-
-                        if (_autoPlay && vlcVideoLibrary != null && _url != null) {
-                            if (vlcVideoLibrary.isPlaying()) {
-                                vlcVideoLibrary.stop();
+            new TimerTask() {
+                @Override
+                public void run() {
+                    if (_hideControls) {
+                        Thread thread = new Thread() {
+                            @Override
+                            public void run() {
+                                runOnUiThread(
+                                    new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            mediaPlayerControls.setVisibility(View.GONE); 
+                                        }
+                                    }
+                                );
                             }
+                        };
 
-                            vlcVideoLibrary.play(_url);
-                        }
+                        thread.start();
                     }
-                },
-                300
+
+                    if (_autoPlay && vlcVideoLibrary != null && _url != null) {
+                        if (vlcVideoLibrary.isPlaying()) {
+                            vlcVideoLibrary.stop();
+                        }
+
+                        vlcVideoLibrary.play(_url);
+                    }
+                }
+            },
+            300
         );
     }
 
@@ -298,30 +297,33 @@ public class VLCActivity extends Activity implements VlcListener, View.OnClickLi
     private void _handlerSeekBar() {
         // SEEK BAR
         handlerSeekBar = new Handler();
-        runnableSeekBar = () -> {
-            try {
-                if (vlcVideoLibrary.getPlayer() != null && vlcVideoLibrary.isPlaying()) {
-                    long curTime = vlcVideoLibrary.getPlayer().getTime();
-                    long totalTime = (long) (curTime / vlcVideoLibrary.getPlayer().getPosition());
-                    int minutes = (int) (curTime / (60 * 1000));
-                    int seconds = (int) ((curTime / 1000) % 60);
-                    int endMinutes = (int) (totalTime / (60 * 1000));
-                    int endSeconds = (int) ((totalTime / 1000) % 60);
-                    currentLoc = String.format(Locale.US, "%02d:%02d", minutes, seconds);
-                    duration = String.format(Locale.US, "%02d:%02d", endMinutes, endSeconds);
+        runnableSeekBar = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (vlcVideoLibrary.getPlayer() != null && vlcVideoLibrary.isPlaying()) {
+                        long curTime = vlcVideoLibrary.getPlayer().getTime();
+                        long totalTime = (long) (curTime / vlcVideoLibrary.getPlayer().getPosition());
+                        int minutes = (int) (curTime / (60 * 1000));
+                        int seconds = (int) ((curTime / 1000) % 60);
+                        int endMinutes = (int) (totalTime / (60 * 1000));
+                        int endSeconds = (int) ((totalTime / 1000) % 60);
+                        currentLoc = String.format(Locale.US, "%02d:%02d", minutes, seconds);
+                        duration = String.format(Locale.US, "%02d:%02d", endMinutes, endSeconds);
 
-                    videoCurrentLoc.setText(currentLoc);
-                    videoDuration.setText(duration);
+                        videoCurrentLoc.setText(currentLoc);
+                        videoDuration.setText(duration);
 
-                    if (!isSeeking) {
-                        playingPos = (int) (vlcVideoLibrary.getPlayer().getPosition() * 100);
-                        mSeekBar.setProgress(playingPos);
+                        if (!isSeeking) {
+                            playingPos = (int) (vlcVideoLibrary.getPlayer().getPosition() * 100);
+                            mSeekBar.setProgress(playingPos);
+                        }
                     }
+
+                    handlerSeekBar.postDelayed(runnableSeekBar, 1000);
+                } catch (Exception ignored) {
+
                 }
-
-                handlerSeekBar.postDelayed(runnableSeekBar, 1000);
-            } catch (Exception ignored) {
-
             }
         };
         runnableSeekBar.run();
@@ -367,16 +369,24 @@ public class VLCActivity extends Activity implements VlcListener, View.OnClickLi
     private void _handlerMediaControl() {
         // OVERLAY
         handlerOverlay = new Handler();
-        runnableOverlay = () -> mediaPlayerControls.setVisibility(View.GONE);
+        runnableOverlay = new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayerControls.setVisibility(View.GONE);
+            }
+        };
         final long timeToDisappear = 3000;
         handlerOverlay.postDelayed(runnableOverlay, timeToDisappear);
-        mediaPlayerView.setOnClickListener(view -> {
-            if (!_hideControls) {
-                mediaPlayerControls.setVisibility(View.VISIBLE);
-            }
+        mediaPlayerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!_hideControls) {
+                    mediaPlayerControls.setVisibility(View.VISIBLE);
+                }
 
-            handlerOverlay.removeCallbacks(runnableOverlay);
-            handlerOverlay.postDelayed(runnableOverlay, timeToDisappear);
+                handlerOverlay.removeCallbacks(runnableOverlay);
+                handlerOverlay.postDelayed(runnableOverlay, timeToDisappear);
+            }
         });
     }
 
