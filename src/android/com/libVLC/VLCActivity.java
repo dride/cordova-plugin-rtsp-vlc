@@ -278,16 +278,16 @@ public class VLCActivity extends Activity implements VlcListener, View.OnClickLi
     }
 
     private void _UIListener() {
-        mSeekBar = findViewById(_getResource("videoSeekBar", "id"));
+        mSeekBar = (SeekBar) findViewById(_getResource("videoSeekBar", "id"));
 
-        surfaceView = findViewById(_getResource("vlc_surfaceView", "id"));
-        bStartStop = findViewById(_getResource("vlc_start_stop", "id"));
+        surfaceView = (SurfaceView) findViewById(_getResource("vlc_surfaceView", "id"));
+        bStartStop = (ImageButton) findViewById(_getResource("vlc_start_stop", "id"));
 
-        videoCurrentLoc = findViewById(_getResource("videoCurrentLoc", "id"));
-        videoDuration = findViewById(_getResource("videoDuration", "id"));
+        videoCurrentLoc = (TextView) findViewById(_getResource("videoCurrentLoc", "id"));
+        videoDuration = (TextView) findViewById(_getResource("videoDuration", "id"));
 
-        mediaPlayerView = findViewById(_getResource("mediaPlayerView", "id"));
-        mediaPlayerControls = findViewById(_getResource("mediaPlayerControls", "id"));
+        mediaPlayerView = (LinearLayout) findViewById(_getResource("mediaPlayerView", "id"));
+        mediaPlayerControls = (LinearLayout) findViewById(_getResource("mediaPlayerControls", "id"));
         mediaPlayerControls.bringToFront();
 
         bStartStop.setOnClickListener(this);
