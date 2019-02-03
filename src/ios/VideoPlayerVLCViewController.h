@@ -12,8 +12,7 @@
 @property(nonatomic) BOOL playOnStart;
 @property(strong, nonatomic) NSString *urlString;
 
-@property (retain, nonatomic) VideoPlayerVLCViewController* origem;
-
--(void) finishOkAndDismiss;
+-(void) play;
+-(void) stop;
 
 @end

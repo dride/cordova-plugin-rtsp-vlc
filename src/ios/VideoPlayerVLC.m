@@ -9,47 +9,64 @@
 
 
 @implementation VideoPlayerVLC
--(void) play:(CDVInvokedUrlCommand *)command{
-    
-    self.lastCommand = command;
+-(void) play:(CDVInvokedUrlCommand *) command {
     
     
     CDVPluginResult *pluginResult = nil;
     NSString *urlString  = [command.arguments objectAtIndex:0];
     
-    if(urlString != nil){
-        // we use that to respond to the plugin when it finishes
-        self.lastCommand = command;
-        
-        self.overlay = [[VideoPlayerVLCViewController alloc] init];
-        self.overlay.urlString = urlString;
-        
-        // on the view controller make a reference to this class
-        self.overlay.origem = self;
-        
-        [self.viewController presentViewController:self.overlay animated:YES completion:nil];
-
+    if (urlString != nil) {
+        @try {
+            if (self.player == nil) {
+                self.player = [[VideoPlayerVLCViewController alloc] init];
+            }
+            
+            self.player.urlString = urlString;
+            
+            [self.viewController addChildViewController:self.player];
+            
+            [self.webView.superview insertSubview:self.player.view aboveSubview:self.webView];
+            
+            [self.player play];
+            
+            
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:true];
+            [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
+        }
+        @catch (NSException *exception) {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:exception.reason];
+        }
     }
     else
     {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"url-invalid"];
     }
-
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
 }
 
--(void) finishOkAndDismiss{
+-(void) stop:(CDVInvokedUrlCommand *) command {
     
-    // End the execution
     CDVPluginResult *pluginResult = nil;
-    
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onDestroyVlc"];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId: self.lastCommand.callbackId];
-    
-    // dismiss view from stack
-    [self.viewController dismissViewControllerAnimated:YES completion:nil];
-    
+    if (self.player != nil) {
+        @try {
 
+            [self.player stop];
+
+            // dismiss view from stack
+            [self.player.view removeFromSuperview];
+            [self.player removeFromParentViewController];
+            
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:true];
+        }
+        @catch (NSException *exception) {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:exception.reason];
+        }
+    } else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"not-playing"];
+    }
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
 }
 
 @end

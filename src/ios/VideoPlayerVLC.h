@@ -26,10 +26,9 @@
 
 @interface VideoPlayerVLC : CDVPlugin
 
-@property (strong,nonatomic) VideoPlayerVLCViewController* overlay;
-@property (strong,nonatomic) CDVInvokedUrlCommand* lastCommand;
+@property (strong) VideoPlayerVLCViewController* player;
 
 -(void) play:(CDVInvokedUrlCommand *)command;
--(void) finishOkAndDismiss;
+-(void) stop:(CDVInvokedUrlCommand *)command;
 
 @end
