@@ -70,7 +70,7 @@
             <source-file src="src/ios/VideoPlayerVLC.m" />
             <header-file src="src/ios/VideoPlayerVLCViewController.h" />
             <source-file src="src/ios/VideoPlayerVLCViewController.m" />
-            <framework src="MobileVLCKit" type="podspec" spec="3.2.0" />
+            <framework src="MobileVLCKit" type="podspec" spec=">3.1.0" />
             <framework src="/usr/lib/libbz2.dylib" />
             <framework src="/usr/lib/libiconv.dylib" />
             <framework src="/usr/lib/libstdc++.dylib" />
