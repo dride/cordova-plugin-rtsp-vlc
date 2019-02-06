@@ -82,6 +82,7 @@
 }
 
 - (void)play{
+    
     if (self.mediaPlayer != nil) {
         if (!self.mediaPlayer.isPlaying) {
             NSURL *mediaUrl = [[NSURL alloc] initWithString:self.urlString];
@@ -105,7 +106,7 @@
     }
     // dismiss view from stack
     [self.view removeFromSuperview];
-    [self removeFromParentViewController];
+
 }
 
 @end

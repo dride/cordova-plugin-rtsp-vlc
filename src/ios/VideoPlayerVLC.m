@@ -9,8 +9,12 @@
 
 
 @implementation VideoPlayerVLC
+
 -(void) play:(CDVInvokedUrlCommand *) command {
-    
+
+    if (self.player != nil){
+        self.player = nil;
+    }
     
     CDVPluginResult *pluginResult = nil;
     NSString *urlString  = [command.arguments objectAtIndex:0];
@@ -24,10 +28,7 @@
             self.player.urlString = urlString;
             
             [self.viewController addChildViewController:self.player];
-            
             [self.webView.superview insertSubview:self.player.view aboveSubview:self.webView];
-            
-            [self.player play];
             
             
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:true];
@@ -56,7 +57,7 @@
             // dismiss view from stack
             [self.player.view removeFromSuperview];
             [self.player removeFromParentViewController];
-            
+
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:true];
         }
         @catch (NSException *exception) {
