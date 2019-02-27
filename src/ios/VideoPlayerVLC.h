@@ -17,6 +17,7 @@
 //under the License.
 //
 //  Created by Yanbing Peng on 10/02/16.
+//  Edited by Yossi Neiman
 //
 //
 #import <Foundation/Foundation.h>
@@ -27,8 +28,12 @@
 @interface VideoPlayerVLC : CDVPlugin
 
 @property (strong) VideoPlayerVLCViewController* player;
+@property (strong) CDVInvokedUrlCommand* commandGlob;
+@property (nonatomic, retain) VideoPlayerVLC* instance;
 
++ (id) getInstance;
 -(void) play:(CDVInvokedUrlCommand *)command;
+-(void) stopInner;
 -(void) stop:(CDVInvokedUrlCommand *)command;
 
 @end

@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 		xmlns="http://schemas.android.com/apk/res/androoid"
 		id="cordova-plugin-rtsp-vlc"
-		version="3.0.4">
+		version="3.0.5">
 
 		<name>vlcstreamplayer</name>
 		<description>VLC Stream Player</description>

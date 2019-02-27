@@ -8,6 +8,8 @@
 
 #import "VideoPlayerVLCViewController.h"
 #import <MobileVLCKit/MobileVLCKit.h>
+#import "VideoPlayerVLC.h"
+
 
 @interface VideoPlayerVLCViewController ()
 @property(strong, nonatomic) UIButton *closeButton;
@@ -104,8 +106,11 @@
             [self.mediaPlayer stop];
         }
     }
+    [[VideoPlayerVLC getInstance] stopInner];
+    
     // dismiss view from stack
     [self.view removeFromSuperview];
+
 
 }
 
