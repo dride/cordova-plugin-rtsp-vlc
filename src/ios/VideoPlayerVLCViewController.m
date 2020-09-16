@@ -36,7 +36,7 @@
     self.playButton = [[UIButton alloc] init];
     self.closeButton = [[UIButton alloc] init];
     self.mediaView = [[UIView alloc] init];
-    self.mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:@[@"--network-caching=150 --clock-jitter=0 -- clock-synchro=0"]];
+    self.mediaPlayer = self.origem.mediaPlayer;
     
     
     self.playButton.translatesAutoresizingMaskIntoConstraints = NO;
@@ -81,15 +81,13 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (self.playOnStart) {
-        if(self.mediaPlayer.media == nil){
-            NSURL *mediaUrl = [[NSURL alloc] initWithString:self.urlString];
-            if(mediaUrl != nil){
-                [self.mediaPlayer setMedia:[[VLCMedia alloc] initWithURL:mediaUrl]];
-            }
-            else{
-                [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Invalid URL" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-                return;
-            }
+        NSURL *mediaUrl = [[NSURL alloc] initWithString:self.urlString];
+        if(mediaUrl != nil){
+            [self.mediaPlayer setMedia:[[VLCMedia alloc] initWithURL:mediaUrl]];
+        }
+        else{
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Invalid URL" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            return;
         }
         [self.mediaPlayer play];
     }

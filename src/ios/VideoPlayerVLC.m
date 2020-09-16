@@ -6,6 +6,9 @@
 //
 //
 #import "VideoPlayerVLC.h"
+#import <MobileVLCKit/MobileVLCKit.h>
+#import <UIKit/UIKit.h>
+
 
 
 @implementation VideoPlayerVLC
@@ -22,10 +25,18 @@
         self.lastCommand = command;
         
         self.overlay = [[VideoPlayerVLCViewController alloc] init];
+        if(self.mediaPlayer == nil) {
+            self.mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:@[@"--network-caching=2000 --clock-jitter=0 -- clock-synchro=0"]];
+        }
         self.overlay.urlString = urlString;
         
         // on the view controller make a reference to this class
         self.overlay.origem = self;
+        
+        // set modal fullscreen on ios 13+
+        if(@available(iOS 13.0, *)) {
+            [self.overlay setModalPresentationStyle: UIModalPresentationFullScreen];
+        }
         
         [self.viewController presentViewController:self.overlay animated:YES completion:nil];
 
@@ -38,7 +49,20 @@
 
 }
 
+-(void) close:(CDVInvokedUrlCommand *)command{
+
+    self.lastCommand = command;
+    [self finishOkAndDismiss];
+
+}
+
 -(void) finishOkAndDismiss{
+    
+    if(self.mediaPlayer != nil){
+        if(self.mediaPlayer.isPlaying){
+            [self.mediaPlayer stop];
+        }
+    }
     
     // End the execution
     CDVPluginResult *pluginResult = nil;
