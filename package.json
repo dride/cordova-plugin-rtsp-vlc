@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-rtsp-vlc",
-  "version": "3.0.5",
+  "version": "3.1.0",
   "description": "Cordova RTSP player",
   "cordova": {
     "id": "cordova-plugin-rtsp-vlc",
