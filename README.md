@@ -35,6 +35,15 @@ window.VideoPlayerVLC.play(
 );
 ```
 
+## For TypeScript
+
+In file, where need call plugin, before import, add row:
+
+
+```typescript
+/// <reference types="cordova-plugin-rtsp-vlc-unmanned/types"/>
+```
+
 References:
 
 https://github.com/disono/libVLC-Player by [@disono](https://github.com/disono)
