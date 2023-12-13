@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-		xmlns="http://schemas.android.com/apk/res/androoid"
+		xmlns:android="http://schemas.android.com/apk/res/android"
 		id="cordova-plugin-rtsp-vlc"
 		version="3.0.5">
 
@@ -32,7 +32,7 @@
 			</config-file>
 
 			<config-file target="AndroidManifest.xml" parent="/manifest/application">
-				<activity android:name="com.libVLC.VLCActivity"/>
+				<activity android:name="com.libVLC.VLCActivity" android:exported="true"/>
 			</config-file>
 			
 			<source-file src="src/android/com/libVLC/VideoPlayerVLC.java" target-dir="src/com/libVLC"/>
